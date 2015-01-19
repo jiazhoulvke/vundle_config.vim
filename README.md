@@ -48,3 +48,7 @@
 如果存在的话光标会自动跳转到所在行，如果不存在的话会新建。然后你就可以在后面写上插件的相关配置了，写完以后按`<C-o>`又可以跳转回*~/.vim/plugins.vim*。比把所有的配置全部保存在vimrc中简洁得多。
 
 具体示例可以参考我的[vim配置](https://github.com/jiazhoulvke/myvim)。
+
+##演示
+
+![vundle\_config.vim](https://github.com/jiazhoulvke/vundle_config.vim/raw/master/vundle_config.gif)
