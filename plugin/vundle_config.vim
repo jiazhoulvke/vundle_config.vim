@@ -1,9 +1,12 @@
 function! VimPluginConfig()
     let curline = getline('.')
-    let pos = match(curline,"^\"*Plugin\ '.*'")
+    let pos = match(curline,"\"*Plugin\ '.*'")
     if pos != -1
         let plugin_name = split(matchstr(curline,"\\(Plugin\ *\\)\\@<=.*"), ',')[0]
-        let plugin_name = split(strpart(plugin_name, 2, strlen(plugin_name)-3), '/')[1]
+        let plugin_name = strpart(plugin_name, 2, strlen(plugin_name)-3)
+        if stridx(plugin_name, '/') != -1
+            let plugin_name = split(plugin_name, '/')[1]
+        endif
         let pluginconfig_filename = expand('%:p:h') . '/' .expand('%:t:r') . '.config.vim'
         exe ":e " . pluginconfig_filename
         let searchstr = "\"\ Name:\ ".plugin_name
@@ -13,6 +16,8 @@ function! VimPluginConfig()
             let plugin_head = ['',hr, "\"\ Name:\ ".plugin_name, hr]
             call append(line('$'), plugin_head)
             normal G
+        else
+            call search('\"=\+', 'e')
         endif
     endif
 endfunction

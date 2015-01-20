@@ -42,8 +42,10 @@
 
 保存并重新启动vim，进入*~/.vim/plugins.vim*，移动光标到你需要配置的插件上，比如`Plugin 'jiazhoulvke/vundle_config.vim'`，按`<C-]>`，会自动打开*~/.vim/plugins.config.vim*,查找有没有类似下面的内容:
 
-> " Name: vundle\_config.vim
-> "===========================
+```
+" Name: vundle_config.vim
+"===========================
+```
 
 如果存在的话光标会自动跳转到所在行，如果不存在的话会新建。然后你就可以在后面写上插件的相关配置了，写完以后按`<C-o>`又可以跳转回*~/.vim/plugins.vim*。比把所有的配置全部保存在vimrc中简洁得多。
 
